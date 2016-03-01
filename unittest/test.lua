@@ -292,6 +292,19 @@ end
 
 
 ---
+-- Calling an unfinished pipeline (a pipeline with no sink) gives an error.
+--
+function test_call_unfinished_pipeline()
+	local pipeline = nozzle() .. nozzle() .. nozzle()
+	
+	assert_error(function() pipeline() end)
+
+	local pipeline2 = generic() .. generic() .. generic()
+	
+	assert_error(function() pipeline2() end)
+end
+
+---
 -- This test makes sure that two or more filters can be chained together, and that chain can
 -- subsequently be chained with more chains, filters or sinks.
 --
