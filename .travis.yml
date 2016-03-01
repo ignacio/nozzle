@@ -25,7 +25,7 @@ install:
   - luarocks install orbit
 
 script:
-  - cd unittest && lua -lluacov run.lua;
+  - lua -lluacov unittest/run.lua;
 
 after_success:
-  - luacov-coveralls -v -r .. -e ../lua_install
+  - luacov-coveralls -v -r . -e lua_install
