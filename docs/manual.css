@@ -1,0 +1,44 @@
+h1, h2, h3, h4, h5, h6 {
+	color:#2B2720;
+	font-family:Georgia,"Times New Roman",Times,serif;
+	font-weight:normal;
+	color: darkblue;
+}
+html, body, form, fieldset, h1, h2, h3, h4, h5, h6, pre, blockquote, ul, ol, dl, dd {
+	margin:0;
+	padding:0;
+}
+
+body {
+	font:14px/1.7 Verdana,Tahoma,sans-serif;
+	margin: 50px;
+	line-height: 25px;
+	padding: 15px;
+}
+pre {
+	font-family: 'Anonymous Pro', 'Bitstream Vera Sans', 'Monaco', Courier, mono, serif;
+	font-size: 14px;
+	border: solid;
+	border-width: 1px;
+	background-color: #EAF2F5;
+	border-color: #BEDCE7;
+	padding: 2px;
+	line-height: normal;
+}
+pre code {
+	border: none;
+}
+
+code {
+	font-family: 'Anonymous Pro', 'Bitstream Vera Sans', 'Monaco', Courier, mono, serif;
+	font-size: 14px;
+	border: solid;
+	border-width: 1px;
+	background-color: #EAF2F5;
+	border-color: #BEDCE7;
+}
+
+h1, h2, h3, h4 {
+	padding-top: 1em;
+	border-bottom: dashed 1px;
+}
