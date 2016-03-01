@@ -93,7 +93,7 @@ Filter_mt.__concat = function (a, b)
 	assert(b)
 
 	if not is_filter(a) then
-		error("Attempt to chain something that is not a filter: " .. tostring(a))
+		error( ("Attempt to chain something that is not a filter. A %s (%s)"):format(type(a), tostring(a)) )
 	end
 	
 	if is_pipeline(b) then
@@ -104,7 +104,7 @@ Filter_mt.__concat = function (a, b)
 		return pipeline:append(a):append(b)
 	end
 
-	error( ("Unable to chain a '%s' to a filter"):format(tostring(b)) )
+	error( ("Unable to chain a %s (%s) to a filter"):format(type(b), tostring(b)) )
 end
 
 ---

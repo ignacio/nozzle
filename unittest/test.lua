@@ -266,6 +266,32 @@ end
 
 
 ---
+-- Check that building invalid chains gives an error, both when appending or prepending.
+--
+function test_pipeline_invalid_chain()
+	assert_error(function()
+		local _ = nozzle() .. {}
+	end)
+
+	assert_error(function()
+		local _ = generic() .. {}
+	end)
+
+	assert_error(function()
+		local _ = nozzle() .. 12
+	end)
+
+	assert_error(function()
+		local _ = {} .. nozzle{ name = "my filter" }
+	end)
+
+	assert_error(function()
+		local _ = 12 .. generic{ name = "my filter" }
+	end)
+end
+
+
+---
 -- This test makes sure that two or more filters can be chained together, and that chain can
 -- subsequently be chained with more chains, filters or sinks.
 --
