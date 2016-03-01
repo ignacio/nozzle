@@ -20,7 +20,7 @@ before_install:
 install:
   # needed just for tests
   - luarocks install lunitx
-  - luarocks install cjson
+  - luarocks install lua-cjson
   - luarocks install wsapi
   - luarocks install orbit
 
