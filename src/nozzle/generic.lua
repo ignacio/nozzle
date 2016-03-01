@@ -1,5 +1,5 @@
 local setmetatable, getmetatable = setmetatable, getmetatable
-local unpack = unpack
+local unpack = unpack or table.unpack
 local type = type
 
 local _M = {}
