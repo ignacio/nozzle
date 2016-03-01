@@ -5,7 +5,7 @@ local lunit = require "lunit"
 
 local nozzle = require "nozzle"
 local generic = require "nozzle.generic"
-local json = require "json"
+local json = require "cjson"
 
 
 webHandler = {

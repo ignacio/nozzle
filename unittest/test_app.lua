@@ -1,5 +1,5 @@
 local orbit = require "orbit"
-local json = require "json"
+local json = require "cjson"
 
 -- luacheck: no unused args
 

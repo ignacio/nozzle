@@ -2,7 +2,7 @@ local nozzle = require "nozzle"
 
 
 local function json_validator(callback)
-	local json = require "json"
+	local json = require "cjson"
 	callback = callback or function() end
 
 	return nozzle.filter{
@@ -27,7 +27,7 @@ end
 
 
 local function json_reply()
-	local json = require "json"
+	local json = require "cjson"
 	return nozzle.filter{
 		name = "nozzle.stock.json_reply",
 		output = function(_, web, output)
