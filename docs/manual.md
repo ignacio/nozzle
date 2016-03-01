@@ -48,7 +48,7 @@ A filter's input function is any function of the following form:
 A **normal** filter can retrieve data out of _input_, process it and store it back in _input_. If the filter needs to stop the pipeline because of invalid data, it just returns a non-nil value. That value (or values) will travel back to the start of the pipeline.
 Since the input must be modified in-place, a table is needed to carry the data around.
 
-    local json_filter = filter{ input = function(_, data)
+    local json_filter = nozzle.filter{ input = function(_, data)
         local ok, req = pcall(json.decode, data.input)
         if not ok then
             return "Invalid json data"
@@ -66,7 +66,7 @@ A **generic** filter, on the other hand, just receives its input as an argument.
 
 Note how we needed to add the _req_ parameter to the sink function. If the sink were to return additional stuff, all filters following it in the pipeline must be aware of that change.
 
-    local json_filter = generic_filter{ input = function(_, input)
+    local json_filter = nozzle.generic.filter{ input = function(_, input)
         local ok, req = pcall(json.decode, input)
         if not ok then
             return stop, "Invalid json data"
