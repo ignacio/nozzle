@@ -18,6 +18,7 @@ local is_callable = helpers.is_callable
 -- Generic Pipeline metatable
 local Pipeline = setmetatable({}, {__index = helpers.Pipeline_mt})
 Pipeline.__index = Pipeline
+Pipeline.__tostring = helpers.Pipeline_mt.__tostring
 
 function Pipeline.new ()
 	return setmetatable({}, Pipeline)

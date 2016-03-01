@@ -7,8 +7,9 @@ local nozzle = require "nozzle"
 local generic = require "nozzle.generic"
 local json = require "cjson"
 
+-- luacheck: module
 
-webHandler = {
+_G.webHandler = {
 	CollectTraceback = debug.traceback,
 	LogError = function(...) io.stderr:write(...); io.stderr:write("\n") end
 }
@@ -243,6 +244,24 @@ function test_filters_tostring()
 
 	assert_equal( "Unnamed filter", tostring(filter3) )
 	assert_equal( "Filter 'my filter'", tostring(filter4) )
+end
+
+
+---
+-- Checks that a pipeline can be pretty printed
+--
+function test_pipeline_tostring()
+	local filter1 = nozzle()
+	local filter2 = nozzle{ name = "my filter" }
+
+	local pipeline = filter1 .. filter2
+	assert_equal("Pipeline: [Unnamed filter, Filter 'my filter']", tostring(pipeline))
+
+	local filter3 = generic()
+	local filter4 = generic{ name = "my filter" }
+
+	local pipeline2 = filter3 .. filter4
+	assert_equal("Pipeline: [Unnamed filter, Filter 'my filter']", tostring(pipeline2))
 end
 
 
