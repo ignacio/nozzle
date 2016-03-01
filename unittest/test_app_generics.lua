@@ -49,3 +49,5 @@ end
 app:dispatch_get(hello, "/")
 
 app:dispatch_post( JsonValidator .. FieldValidator .. receive_json, "/test_json")
+
+return app

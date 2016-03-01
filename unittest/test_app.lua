@@ -61,3 +61,5 @@ app:dispatch_post( JsonValidator .. FieldValidator .. receive_json, "/test_json"
 app:dispatch_post( CustomJsonValidator .. FieldValidator .. receive_json, "/test_json_custom")
 
 app:dispatch_get( JsonReply .. encode_json, "/test_json_encode" )
+
+return app
