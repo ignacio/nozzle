@@ -35,10 +35,6 @@ end
 -- Pipeline's metatable
 local Pipeline_mt = {}
 
-function Pipeline_mt.new ()
-	return setmetatable({}, Pipeline_mt)
-end
-
 function Pipeline_mt:clone ()
 	local new = self.new()
 	for _, v in ipairs(self) do
