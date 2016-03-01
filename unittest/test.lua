@@ -30,9 +30,9 @@ function test_orbit_application()
 	local app = mock.make_handler(test_app.run)
 
 	local response, request = app:get("/", {hello = "world"})
-	assert_equal(200, response.code)
+	assert_equal("200 Ok", response.code)
 	assert_equal("GET", request.request_method)
-	assert_equal("?hello=world", request.query_string)
+	assert_equal("hello=world", request.query_string)
 	assert_equal("text/html", response.headers["Content-Type"])
 	assert_equal("success", response.body)
 
@@ -50,12 +50,12 @@ function test_orbit_application()
 
 	-- Now we send a proper json, with the required field.
 	local response, request = app:post("/test_json", json.encode({ id = 1234 }), { ["Content-Type"] = "application/json"})
-	assert_equal(200, response.code)
+	assert_equal("200 Ok", response.code)
 	assert_equal("Replied request with id = 1234", response.body)
 
 	-- Now we send a proper json, with the required field, but we'll use the stock json validator
 	local response, request = app:post("/test_json_custom", json.encode({ id = 1234 }), { ["Content-Type"] = "application/json"})
-	assert_equal(200, response.code)
+	assert_equal("200 Ok", response.code)
 	assert_equal("Replied request with id = 1234", response.body)
 
 	-- Now we send a proper json, without the required field, but we'll use the stock json validator
@@ -66,7 +66,7 @@ function test_orbit_application()
 
 	-- Check the stock json replier
 	local response, request = app:get("/test_json_encode")
-	assert_equal(200, response.code)
+	assert_equal("200 Ok", response.code)
 	assert_equal([[{"some":"value"}]], response.body)
 
 	--print("Response:", json.encode(response, true))
@@ -83,9 +83,9 @@ function test_orbit_application_generics()
 	local app = mock.make_handler(test_app.run)
 
 	local response, request = app:get("/", {hello = "world"})
-	assert_equal(200, response.code)
+	assert_equal("200 Ok", response.code)
 	assert_equal("GET", request.request_method)
-	assert_equal("?hello=world", request.query_string)
+	assert_equal("hello=world", request.query_string)
 	assert_equal("text/html", response.headers["Content-Type"])
 	assert_equal("success", response.body)
 
@@ -103,7 +103,7 @@ function test_orbit_application_generics()
 
 	-- Now we send a proper json, with the required field.
 	local response, request = app:post("/test_json", json.encode({ id = 1234}), { ["Content-Type"] = "application/json"})
-	assert_equal(200, response.code, 200)
+	assert_equal("200 Ok", response.code)
 	assert_equal("Replied request with id = 1234", response.body)
 
 	--print("Response:", json.encode(response, true))
