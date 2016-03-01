@@ -19,22 +19,6 @@ local function is_callable (v)
 	return type(v) == 'function' or getmetatable(v) and getmetatable(v).__call
 end
 
----
--- Clones a table, recursively. It also copies metatables.
---
-local function clone (t)
-	local new = {}
-	for k,v in pairs(t) do
-		if type(k) == "table" then
-			k = clone(k)
-		end
-		if type(v) == "table" then
-			v = clone(v)
-		end
-		new[k] = v
-	end
-	return setmetatable(new, getmetatable(t))
-end
 
 ---
 -- tostring metamethod, allows printing the filter name if available
@@ -96,7 +80,6 @@ return {
 	compose = compose,
 	tostring_filter = tostring_filter,
 	split = split,
-	clone = clone,
 	is_callable = is_callable,
 	Pipeline_mt = Pipeline_mt
 }
