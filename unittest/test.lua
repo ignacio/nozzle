@@ -25,6 +25,8 @@ end
 -- Tests using an actual Orbit application in the backend.
 -- This application uses normal filters.
 --
+if _VERSION == "Lua 5.1" then
+
 function test_orbit_application()
 	local test_app = require "test_app"
 	local app = mock.make_handler(test_app.run)
@@ -108,6 +110,8 @@ function test_orbit_application_generics()
 
 	--print("Response:", json.encode(response, true))
 	--print("Issued request:", json.encode(request, true))
+end
+
 end
 
 ---
