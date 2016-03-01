@@ -1,5 +1,8 @@
 # nozzle
 
+[![Build Status](https://travis-ci.org/ignacio/nozzle.png?branch=master)](https://travis-ci.org/ignacio/nozzle)
+[![Coverage Status](https://coveralls.io/repos/github/ignacio/nozzle/badge.svg?branch=master)](https://coveralls.io/github/ignacio/nozzle?branch=master)
+
 Nozzle is a Lua library that allows to write _filters_ and chain them together into _pipelines_. When data passes through the pipeline, each filter can inspect, modify or reject it.
 
 What does that mean?
